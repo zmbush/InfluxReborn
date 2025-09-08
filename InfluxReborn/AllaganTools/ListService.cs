@@ -24,6 +24,7 @@ internal sealed class ListService : IListService
     public FilterResult? GetFilterByKeyOrName(string keyOrName)
     {
         var f = _getListByKeyOrName.Invoke(_listService, [keyOrName]);
-        return f != null ? new FilterResult((IEnumerable)_refreshList.Invoke(_listFilterService, [f])!) : null;
+        var list = _refreshList.Invoke(_listFilterService, [f, default]);
+        return f != null ? new FilterResult((IEnumerable)list!) : null;
     }
 }
