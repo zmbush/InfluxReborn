@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 
-namespace Influx.Remote;
+namespace InfluxReborn.Remote;
 
 internal sealed record StatisticsValues
 {

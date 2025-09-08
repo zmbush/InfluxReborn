@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Influx.SubmarineTracker;
+namespace InfluxReborn.SubmarineTracker;
 
 internal sealed class SubmarineStats
 {

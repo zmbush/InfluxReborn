@@ -13,7 +13,7 @@ using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
 using Newtonsoft.Json;
 
-namespace Influx.LocalStatistics;
+namespace InfluxReborn.LocalStatistics;
 
 internal sealed class LocalStatsCalculator : IDisposable
 {

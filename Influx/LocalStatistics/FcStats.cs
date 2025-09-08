@@ -1,4 +1,4 @@
-﻿namespace Influx.LocalStatistics;
+﻿namespace InfluxReborn.LocalStatistics;
 
 public sealed record FcStats
 {

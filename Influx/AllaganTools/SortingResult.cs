@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 using ItemFlags = FFXIVClientStructs.FFXIV.Client.Game.InventoryItem.ItemFlags;
 internal sealed class SortingResult

@@ -10,10 +10,10 @@ using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
-using Influx.AllaganTools;
+using InfluxReborn.AllaganTools;
 using LLib.ImGui;
 
-namespace Influx.Windows;
+namespace InfluxReborn.Windows;
 
 internal sealed class ConfigurationWindow : LWindow, IDisposable
 {

@@ -9,18 +9,18 @@ using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using ECommons;
-using Influx.AllaganTools;
-using Influx.LocalStatistics;
-using Influx.Remote;
-using Influx.SubmarineTracker;
-using Influx.Windows;
+using InfluxReborn.AllaganTools;
+using InfluxReborn.LocalStatistics;
+using InfluxReborn.Remote;
+using InfluxReborn.SubmarineTracker;
+using InfluxReborn.Windows;
 using LLib;
 
-namespace Influx;
+namespace InfluxReborn;
 
 [SuppressMessage("ReSharper", "UnusedType.Global")]
 [SuppressMessage("Performance", "CA1812")]
-internal sealed class InfluxPlugin : IDalamudPlugin
+internal sealed class InfluxRebornPlugin : IDalamudPlugin
 {
     private readonly object _lock = new();
     private readonly IDalamudPluginInterface _pluginInterface;
@@ -39,7 +39,7 @@ internal sealed class InfluxPlugin : IDalamudPlugin
     private readonly ConfigurationWindow _configurationWindow;
     private readonly Timer _timer;
 
-    public InfluxPlugin(IDalamudPluginInterface pluginInterface, IClientState clientState, IPluginLog pluginLog,
+    public InfluxRebornPlugin(IDalamudPluginInterface pluginInterface, IClientState clientState, IPluginLog pluginLog,
         ICommandManager commandManager, IChatGui chatGui, IDataManager dataManager, IFramework framework,
         IAddonLifecycle addonLifecycle, IGameGui gameGui, ICondition condition)
     {
@@ -59,7 +59,7 @@ internal sealed class InfluxPlugin : IDalamudPlugin
         _statisticsClientManager =
             new StatisticsClientManager(chatGui, _configuration, dataManager, clientState, _pluginLog);
 
-        _windowSystem = new WindowSystem(typeof(InfluxPlugin).FullName);
+        _windowSystem = new WindowSystem(typeof(InfluxRebornPlugin).FullName);
         _statisticsWindow = new StatisticsWindow();
         _windowSystem.AddWindow(_statisticsWindow);
         _configurationWindow = new ConfigurationWindow(_pluginInterface, clientState, _configuration, _allaganToolsIpc);
@@ -116,7 +116,7 @@ internal sealed class InfluxPlugin : IDalamudPlugin
             if (!_clientState.IsLoggedIn ||
                 _configuration.IncludedCharacters.All(x => x.LocalContentId != _clientState.LocalContentId))
             {
-                _pluginLog.Verbose("Influx: not logged in or not enabled for this character");
+                _pluginLog.Verbose("InfluxReborn: not logged in or not enabled for this character");
                 return;
             }
 

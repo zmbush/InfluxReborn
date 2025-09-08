@@ -1,4 +1,4 @@
-﻿namespace Influx.SubmarineTracker;
+﻿namespace InfluxReborn.SubmarineTracker;
 
 public enum EState
 {

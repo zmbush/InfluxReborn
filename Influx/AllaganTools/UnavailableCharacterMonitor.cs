@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Dalamud.Plugin.Services;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal sealed class UnavailableCharacterMonitor(IPluginLog pluginLog) : ICharacterMonitor
 {

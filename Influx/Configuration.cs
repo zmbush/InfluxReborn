@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Dalamud.Configuration;
 
-namespace Influx;
+namespace InfluxReborn;
 
 internal sealed class Configuration : IPluginConfiguration
 {

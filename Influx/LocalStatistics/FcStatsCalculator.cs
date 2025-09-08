@@ -14,7 +14,7 @@ using FFXIVClientStructs.FFXIV.Client.UI.Info;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using Newtonsoft.Json;
 
-namespace Influx.LocalStatistics;
+namespace InfluxReborn.LocalStatistics;
 
 internal sealed class FcStatsCalculator : IDisposable
 {

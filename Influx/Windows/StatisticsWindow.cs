@@ -3,17 +3,17 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
-using Influx.AllaganTools;
+using InfluxReborn.AllaganTools;
 using LLib.ImGui;
 
-namespace Influx.Windows;
+namespace InfluxReborn.Windows;
 
 internal sealed class StatisticsWindow : LWindow
 {
     private List<StatisticsRow> _rows = new();
 
     public StatisticsWindow()
-        : base("Statistics###InfluxStatistics")
+        : base("Statistics###InfluxRebornStatistics")
     {
         Position = new Vector2(100, 100);
         PositionCondition = ImGuiCond.FirstUseEver;
@@ -24,7 +24,7 @@ internal sealed class StatisticsWindow : LWindow
 
     public override void DrawContent()
     {
-        if (ImGui.BeginTable("Currencies###InfluxStatisticsCurrencies", 2))
+        if (ImGui.BeginTable("Currencies###InfluxRebornStatisticsCurrencies", 2))
         {
             ImGui.TableSetupColumn("Name");
             ImGui.TableSetupColumn($"Gil ({_rows.Sum(x => x.Gil):N0})##Gil");

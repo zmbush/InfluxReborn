@@ -8,7 +8,7 @@ using InfluxDB.Client;
 using InfluxDB.Client.Api.Domain;
 using InfluxDB.Client.Writes;
 
-namespace Influx.Remote.Clients;
+namespace InfluxReborn.Remote.Clients;
 
 internal sealed class InfluxDbStatisticsClient : BaseStatisticsClient
 {

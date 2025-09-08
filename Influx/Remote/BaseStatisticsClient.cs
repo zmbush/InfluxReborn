@@ -5,12 +5,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dalamud.Plugin.Services;
-using Influx.AllaganTools;
-using Influx.LocalStatistics;
-using Influx.SubmarineTracker;
+using InfluxReborn.AllaganTools;
+using InfluxReborn.LocalStatistics;
+using InfluxReborn.SubmarineTracker;
 using GrandCompany = FFXIVClientStructs.FFXIV.Client.UI.Agent.GrandCompany;
 
-namespace Influx.Remote;
+namespace InfluxReborn.Remote;
 
 internal abstract class BaseStatisticsClient : IDisposable
 {

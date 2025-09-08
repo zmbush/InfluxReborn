@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal interface IInventoryMonitor
 {

@@ -1,6 +1,6 @@
 ﻿using Dalamud.Plugin.Services;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal sealed class UnavailableListService(IPluginLog pluginLog) : IListService
 {

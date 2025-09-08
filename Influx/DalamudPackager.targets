@@ -16,6 +16,6 @@
                 AssemblyName="$(AssemblyName)"
                 MakeZip="true"
                 VersionComponents="2"
-                Exclude="AutoRetainerAPI.pdb;ECommons.xml;ECommons.pdb;Influx.deps.json;LLib.pdb"/>
+                Exclude="AutoRetainerAPI.pdb;ECommons.xml;ECommons.pdb;InfluxReborn.deps.json;LLib.pdb"/>
     </Target>
 </Project>

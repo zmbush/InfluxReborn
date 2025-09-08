@@ -1,4 +1,4 @@
-﻿namespace Influx.AllaganTools;
+﻿namespace InfluxReborn.AllaganTools;
 
 internal interface IListService
 {

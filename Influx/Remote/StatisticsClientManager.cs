@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Dalamud.Plugin.Services;
-using Influx.Remote.Clients;
+using InfluxReborn.Remote.Clients;
 
-namespace Influx.Remote;
+namespace InfluxReborn.Remote;
 
 internal sealed class StatisticsClientManager : IDisposable
 {

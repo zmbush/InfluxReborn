@@ -1,7 +1,7 @@
 ﻿using System;
 using Dalamud.Logging;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal sealed class InventoryItem
 {

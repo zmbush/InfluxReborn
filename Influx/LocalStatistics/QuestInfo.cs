@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Influx.LocalStatistics;
+namespace InfluxReborn.LocalStatistics;
 
 public sealed class QuestInfo
 {

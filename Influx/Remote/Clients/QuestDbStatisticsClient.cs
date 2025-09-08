@@ -9,7 +9,7 @@ using QuestDB.Enums;
 using QuestDB.Senders;
 using QuestDB.Utils;
 
-namespace Influx.Remote.Clients;
+namespace InfluxReborn.Remote.Clients;
 
 internal sealed class QuestDbStatisticsClient : BaseStatisticsClient
 {

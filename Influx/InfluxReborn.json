@@ -1,5 +1,5 @@
 ﻿{
-  "Name": "Influx",
+  "Name": "InfluxReborn",
   "Author": "Liza Carvelli",
   "Punchline": "Sync game stats to InfluxDB or QuestDB",
   "Description": "Uploads your game statistics (such as quest progress, gil, retainer stats) to an InfluxDB or QuestDB instance, making it possible to automatically track your progress through external tools such as Grafana.",

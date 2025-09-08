@@ -6,7 +6,7 @@ using Dalamud.Plugin.Services;
 using LLib.GameData;
 using Lumina.Excel.Sheets;
 
-namespace Influx.Remote;
+namespace InfluxReborn.Remote;
 
 internal sealed class GameData
 {

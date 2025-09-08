@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal sealed class Character
 {

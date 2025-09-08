@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Reflection;
 
-namespace Influx.AllaganTools;
+namespace InfluxReborn.AllaganTools;
 
 internal sealed class ListService : IListService
 {

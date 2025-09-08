@@ -5,10 +5,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using Dalamud.Plugin;
-using Influx.AllaganTools;
+using InfluxReborn.AllaganTools;
 using LLib;
 
-namespace Influx.SubmarineTracker;
+namespace InfluxReborn.SubmarineTracker;
 
 internal sealed class SubmarineTrackerIpc
 {

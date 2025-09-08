@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Influx.AllaganTools;
-using Influx.LocalStatistics;
-using Influx.SubmarineTracker;
+using InfluxReborn.AllaganTools;
+using InfluxReborn.LocalStatistics;
+using InfluxReborn.SubmarineTracker;
 
-namespace Influx;
+namespace InfluxReborn;
 
 internal sealed class StatisticsUpdate
 {
