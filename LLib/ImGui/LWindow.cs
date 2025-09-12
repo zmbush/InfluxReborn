@@ -14,21 +14,13 @@ public abstract class LWindow : Window
     protected LWindow(string windowName, ImGuiWindowFlags flags = ImGuiWindowFlags.None, bool forceMainWindow = false)
         : base(windowName, flags, forceMainWindow)
     {
+        _wasCollapsedLastFrame = true;
     }
 
     protected bool ClickedHeaderLastFrame { get; private set; }
     protected bool ClickedHeaderCurrentFrame { get; private set; }
     protected bool UncollapseNextFrame { get; set; }
 
-    public bool IsOpenAndUncollapsed
-    {
-        get => IsOpen && !_wasCollapsedLastFrame;
-        set
-        {
-            IsOpen = value;
-            UncollapseNextFrame = value;
-        }
-    }
 
     protected bool IsPinned
     {
@@ -104,11 +96,6 @@ public abstract class LWindow : Window
                 }
             }
         }
-    }
-
-    public void ToggleOrUncollapse()
-    {
-        IsOpenAndUncollapsed ^= true;
     }
 
     #region Dalamud Overrides

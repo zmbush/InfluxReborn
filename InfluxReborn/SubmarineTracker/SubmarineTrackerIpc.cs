@@ -5,24 +5,21 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using Dalamud.Plugin;
+using ECommons.Reflection;
 using InfluxReborn.AllaganTools;
-using LLib;
 
 namespace InfluxReborn.SubmarineTracker;
 
 internal sealed class SubmarineTrackerIpc
 {
-    private readonly DalamudReflector _dalamudReflector;
-
-    public SubmarineTrackerIpc(DalamudReflector dalamudReflector)
+    public SubmarineTrackerIpc()
     {
-        _dalamudReflector = dalamudReflector;
     }
 
     [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
-    public IReadOnlyDictionary<Character, SubmarineStats> GetSubmarineStats(List<Character> characters)
+    public static IReadOnlyDictionary<Character, SubmarineStats> GetSubmarineStats(List<Character> characters)
     {
-        if (_dalamudReflector.TryGetDalamudPlugin("Submarine Tracker", out IDalamudPlugin? it, false, true))
+        if (DalamudReflector.TryGetDalamudPlugin("Submarine Tracker", out IDalamudPlugin? it, false, true))
         {
             var databaseCache = it.GetType()
                 .GetField("DatabaseCache", BindingFlags.Static | BindingFlags.Public)!

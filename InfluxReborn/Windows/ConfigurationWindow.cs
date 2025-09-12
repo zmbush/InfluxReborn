@@ -180,6 +180,47 @@ internal sealed class ConfigurationWindow : LWindow, IDisposable
             ImGui.SameLine();
             ImGuiComponents.HelpMarker(
                 "Helpful to distinguish between different accounts (which may upload data at different times).\nIf this is set to 'a', the tables will be named 'a_quests', 'a_retainer' etc.");
+
+            if (TestConnection != null)
+            {
+                if (ImGui.Button("Test Connection"))
+                {
+                    _cts.Cancel();
+                    _cts.Dispose();
+                    _testConnectionResult = null;
+
+                    _cts = new CancellationTokenSource();
+                    var cancellationToken = _cts.Token;
+
+                    Task.Factory.StartNew(async () =>
+                    {
+                        try
+                        {
+                            var result = await TestConnection(cancellationToken).ConfigureAwait(false);
+                            cancellationToken.ThrowIfCancellationRequested();
+
+                            _testConnectionResult = result;
+                        }
+                        catch (TaskCanceledException)
+                        {
+                            // irrelevant
+                        }
+                    }, cancellationToken, TaskCreationOptions.None, TaskScheduler.Default);
+                }
+
+                if (_testConnectionResult is { } connectionResult)
+                {
+                    if (connectionResult.Success && string.IsNullOrEmpty(connectionResult.Error))
+                        TextWrapped(ImGuiColors.HealerGreen, "Connection successful.");
+                    else if (connectionResult.Success)
+                    {
+                        TextWrapped(ImGuiColors.HealerGreen, "URL, Token and Organization are valid.");
+                        TextWrapped(ImGuiColors.DalamudYellow, connectionResult.Error);
+                    }
+                    else
+                        TextWrapped(ImGuiColors.DalamudRed, $"Connection failed: {connectionResult.Error}");
+                }
+            }
         }
     }
 

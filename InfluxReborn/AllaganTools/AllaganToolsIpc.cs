@@ -6,15 +6,15 @@ using Dalamud.Plugin;
 using Dalamud.Plugin.Ipc;
 using Dalamud.Plugin.Ipc.Exceptions;
 using Dalamud.Plugin.Services;
+using ECommons.Reflection;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using LLib;
+//using LLib;
 
 namespace InfluxReborn.AllaganTools;
 
 internal sealed class AllaganToolsIpc : IDisposable
 {
     private readonly IChatGui _chatGui;
-    private readonly DalamudReflector _dalamudReflector;
     private readonly IFramework _framework;
     private readonly IPluginLog _pluginLog;
     private readonly ICallGateSubscriber<bool, bool> _initialized;
@@ -24,11 +24,10 @@ internal sealed class AllaganToolsIpc : IDisposable
     private IInventoryMonitor _inventories;
     private IListService _lists;
 
-    public AllaganToolsIpc(IDalamudPluginInterface pluginInterface, IChatGui chatGui, DalamudReflector dalamudReflector,
+    public AllaganToolsIpc(IDalamudPluginInterface pluginInterface, IChatGui chatGui,
         IFramework framework, IPluginLog pluginLog)
     {
         _chatGui = chatGui;
-        _dalamudReflector = dalamudReflector;
         _framework = framework;
         _pluginLog = pluginLog;
 
@@ -52,7 +51,7 @@ internal sealed class AllaganToolsIpc : IDisposable
         }
         catch (IpcNotReadyError e)
         {
-            _pluginLog.Error(e, "Not initializing ATools yet, ipc not ready");
+            _pluginLog.Warning(e, "Not initializing AlaganTools yet, ipc not ready");
         }
     }
 
@@ -63,7 +62,7 @@ internal sealed class AllaganToolsIpc : IDisposable
         {
             try
             {
-                if (_dalamudReflector.TryGetDalamudPlugin("Allagan Tools", out var it, false, true))
+                if (DalamudReflector.TryGetDalamudPlugin("InventoryTools", out IDalamudPlugin? it, false, true))
                 {
                     var hostedPlugin = it.GetType().BaseType!;
                     var host = hostedPlugin.GetField("host", BindingFlags.NonPublic | BindingFlags.Instance)!.GetValue(it)!;
@@ -85,7 +84,7 @@ internal sealed class AllaganToolsIpc : IDisposable
                 }
                 else
                 {
-                    _pluginLog.Warning("Reflection was unsuccessful");
+                    _pluginLog.Warning("Reflection was unsuccessful.");
                 }
             }
             catch (Exception e)

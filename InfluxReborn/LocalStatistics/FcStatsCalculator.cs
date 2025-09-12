@@ -49,7 +49,6 @@ internal sealed class FcStatsCalculator : IDisposable
         _configuration = configuration;
         _pluginLog = pluginLog;
 
-        ECommonsMain.Init(_pluginInterface, plugin);
         _autoRetainerApi = new();
         _autoRetainerApi.OnCharacterPostprocessStep += CheckCharacterPostProcess;
         _autoRetainerApi.OnCharacterReadyToPostProcess += DoCharacterPostProcess;

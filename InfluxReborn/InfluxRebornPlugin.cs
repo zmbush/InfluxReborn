@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Timers;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Command;
@@ -49,9 +50,11 @@ internal sealed class InfluxRebornPlugin : IDalamudPlugin
         _commandManager = commandManager;
         _condition = condition;
         _pluginLog = pluginLog;
-        DalamudReflector dalamudReflector = new DalamudReflector(pluginInterface, framework, pluginLog);
-        _allaganToolsIpc = new AllaganToolsIpc(pluginInterface, chatGui, dalamudReflector, framework, _pluginLog);
-        _submarineTrackerIpc = new SubmarineTrackerIpc(dalamudReflector);
+
+        ECommonsMain.Init(_pluginInterface, this, ECommons.Module.DalamudReflector);
+
+        _allaganToolsIpc = new AllaganToolsIpc(pluginInterface, chatGui, framework, _pluginLog);
+        _submarineTrackerIpc = new SubmarineTrackerIpc();
         _localStatsCalculator =
             new LocalStatsCalculator(pluginInterface, clientState, addonLifecycle, pluginLog, dataManager);
         _fcStatsCalculator = new FcStatsCalculator(this, pluginInterface, clientState, addonLifecycle, gameGui,
@@ -85,7 +88,8 @@ internal sealed class InfluxRebornPlugin : IDalamudPlugin
         _pluginInterface.UiBuilder.OpenMainUi += _statisticsWindow.Toggle;
         _condition.ConditionChange += UpdateOnLogout;
         _clientState.Login += AutoEnrollCharacter;
-        
+
+        _pluginLog.Info("Initializing ECommons");
     }
 
     private Configuration LoadConfig()
@@ -163,7 +167,7 @@ internal sealed class InfluxRebornPlugin : IDalamudPlugin
                                 y.LocalContentId == z.CharacterId && z.FreeCompanyId == x.Key.CharacterId)))
                         .ToDictionary(x => x.Key, x => x.Value),
                     InventoryItems = inventoryItems,
-                    Submarines = UpdateEnabledSubs(_submarineTrackerIpc.GetSubmarineStats(characters), characters),
+                    Submarines = UpdateEnabledSubs(SubmarineTrackerIpc.GetSubmarineStats(characters), characters),
                     LocalStats = _localStatsCalculator.GetAllCharacterStats()
                         .Where(x => characters.Any(y => y.CharacterId == x.Key))
                         .ToDictionary(x => characters.First(y => y.CharacterId == x.Key), x => x.Value)

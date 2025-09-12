@@ -113,9 +113,29 @@ internal sealed class QuestDbStatisticsClient : BaseStatisticsClient
         }
     }
 
-    public override Task<(bool Success, string Error)> TestConnection(CancellationToken cancellationToken)
+    public override async Task<(bool Success, string Error)> TestConnection(CancellationToken cancellationToken)
     {
-        return Task.FromResult((true, "This client doesn't implement connection tests"));
+        string tablePrefix = _serverConfiguration.TablePrefix;
+        if (_sender == null)
+            return (false, "InfluxDB client is not initialized");
+
+        try
+        {
+            _sender.Transaction("fakeTable");
+            _sender.Column("key", "value");
+            await _sender.AtAsync(DateTime.UtcNow, cancellationToken).ConfigureAwait(false);
+            await _sender.CommitAsync(cancellationToken).ConfigureAwait(false);
+
+        }
+        catch (Exception e)
+        {
+            _pluginLog.Error(e, "Unable to connect to QuestDB server");
+            return (false, "Failed to connect to QuestDB server");
+        }
+
+        cancellationToken.ThrowIfCancellationRequested();
+
+        return (true, string.Empty);
     }
 
     public override void Dispose()
