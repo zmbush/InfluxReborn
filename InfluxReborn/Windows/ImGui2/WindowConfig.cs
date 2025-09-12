@@ -1,4 +1,4 @@
-﻿namespace LLib.ImGui;
+﻿namespace InfluxReborn.Windows.ImGui2;
 
 public class WindowConfig
 {

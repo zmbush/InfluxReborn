@@ -16,7 +16,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AutoRetainerAPI\AutoRetainerAPI\AutoRetainerAPI.csproj" />
-      <ProjectReference Include="..\LLib\LLib.csproj" />
     </ItemGroup>
 
     <ItemGroup>

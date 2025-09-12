@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Dalamud.Plugin.Services;
-using LLib.GameData;
+using InfluxReborn.GameData;
 using Lumina.Excel.Sheets;
 
 namespace InfluxReborn.Remote;

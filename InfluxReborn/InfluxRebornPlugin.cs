@@ -15,7 +15,6 @@ using InfluxReborn.LocalStatistics;
 using InfluxReborn.Remote;
 using InfluxReborn.SubmarineTracker;
 using InfluxReborn.Windows;
-using LLib;
 
 namespace InfluxReborn;
 

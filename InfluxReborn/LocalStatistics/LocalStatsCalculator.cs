@@ -92,7 +92,7 @@ internal sealed class LocalStatsCalculator : IDisposable
 
             while (msq.FirstOrDefault(quest => quest.PreviousQuestIds.Count == 0 ||
                                                quest.PreviousQuestIds.All(x => sortedQuests.Any(y => x == y.RowId))) is
-                   { } qq)
+                { } qq)
             {
                 sortedQuests.Add(qq);
                 msq.Remove(qq);
