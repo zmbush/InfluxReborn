@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Windowing;
 
-namespace InfluxReborn.Windows.ImGui2;
+namespace InfluxReborn.Windows;
 
 [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global")]
 public abstract class LWindow : Window
@@ -66,7 +66,7 @@ public abstract class LWindow : Window
 
     private void UpdateWindowConfig()
     {
-        if (this is IPersistableWindowConfig pwc && !Dalamud.Bindings.ImGui.ImGui.IsAnyMouseDown())
+        if (this is IPersistableWindowConfig pwc && !ImGui.IsAnyMouseDown())
         {
             WindowConfig? config = pwc.WindowConfig;
             if (config != null)
@@ -117,7 +117,7 @@ public abstract class LWindow : Window
 
         if (UncollapseNextFrame)
         {
-            Dalamud.Bindings.ImGui.ImGui.SetNextWindowCollapsed(false);
+            ImGui.SetNextWindowCollapsed(false);
             UncollapseNextFrame = false;
         }
 

@@ -11,7 +11,6 @@ using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InfluxReborn.AllaganTools;
-using InfluxReborn.Windows.ImGui2;
 
 namespace InfluxReborn.Windows;
 

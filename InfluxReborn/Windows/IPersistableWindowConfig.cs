@@ -1,4 +1,4 @@
-﻿namespace InfluxReborn.Windows.ImGui2;
+﻿namespace InfluxReborn.Windows;
 
 public interface IPersistableWindowConfig
 {

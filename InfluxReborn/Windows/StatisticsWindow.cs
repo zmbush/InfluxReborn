@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using InfluxReborn.AllaganTools;
-using InfluxReborn.Windows.ImGui2;
 
 namespace InfluxReborn.Windows;
 

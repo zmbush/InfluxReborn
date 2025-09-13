@@ -41,16 +41,6 @@
         "resolved": "9.0.3",
         "contentHash": "4uPdnj9hLRrb3ZSeVEDtwIm9nNrrT9vAXYC9o1/yTW8lGOPwTyI2QlkcICwYEGM1LESGTFidcPMFACznUZKbIQ=="
       },
-      "Microsoft.SourceLink.Gitea": {
-        "type": "Direct",
-        "requested": "[8.0.0, )",
-        "resolved": "8.0.0",
-        "contentHash": "KOBodmDnlWGIqZt2hT47Q69TIoGhIApDVLCyyj9TT5ct8ju16AbHYcB4XeknoHX562wO1pMS/1DfBIZK+V+sxg==",
-        "dependencies": {
-          "Microsoft.Build.Tasks.Git": "8.0.0",
-          "Microsoft.SourceLink.Common": "8.0.0"
-        }
-      },
       "net-questdb-client": {
         "type": "Direct",
         "requested": "[2.1.0, )",
@@ -74,11 +64,6 @@
           "RestSharp": "112.0.0"
         }
       },
-      "JetBrains.Annotations": {
-        "type": "Transitive",
-        "resolved": "2024.3.0",
-        "contentHash": "ox5pkeLQXjvJdyAB4b2sBYAlqZGLh3PjSnP1bQNVx72ONuTJ9+34/+Rq91Fc0dG29XG9RgZur9+NcP4riihTug=="
-      },
       "JsonSubTypes": {
         "type": "Transitive",
         "resolved": "2.0.1",
@@ -86,11 +71,6 @@
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
         }
-      },
-      "Microsoft.Build.Tasks.Git": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "bZKfSIKJRXLTuSzLudMFte/8CempWjVamNUR5eHJizsy+iuOuO/k2gnh7W0dHJmYY0tBf+gUErfluCv5mySAOQ=="
       },
       "Microsoft.Extensions.Primitives": {
         "type": "Transitive",
@@ -109,11 +89,6 @@
           "Microsoft.Extensions.Primitives": "2.2.0",
           "System.Buffers": "4.5.0"
         }
-      },
-      "Microsoft.SourceLink.Common": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "dk9JPxTCIevS75HyEQ0E4OVAFhB2N+V9ShCXf8Q6FkUQZDkgLI12y679Nym1YqsiSysuQskT7Z+6nUf3yab6Vw=="
       },
       "Newtonsoft.Json": {
         "type": "Transitive",
@@ -190,13 +165,6 @@
         "type": "Project",
         "dependencies": {
           "ECommons": "[3.0.1.5, )"
-        }
-      },
-      "llib": {
-        "type": "Project",
-        "dependencies": {
-          "DalamudPackager": "[13.0.0, )",
-          "JetBrains.Annotations": "[2024.3.0, )"
         }
       }
     }
